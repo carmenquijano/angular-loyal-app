@@ -12,6 +12,7 @@ export class AppComponent {
   applogin='applogin';
   nombres:string[] = ['juan', 'carlos', 'pedro'];
   nombre:string = '';
+  edad:number = 2;
 
   cambiarVisibilidad():void{
     this.mostrarLogin = !this.mostrarLogin;
@@ -30,5 +31,8 @@ export class AppComponent {
 
   alert():void{
     window.alert('')
+  }
+  getEdad():number{
+    return this.edad;
   }
 }
