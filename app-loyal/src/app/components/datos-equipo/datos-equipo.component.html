@@ -6,18 +6,18 @@
     <!-- Card Content - Collapse -->
     <div class="collapse show" id="collapseCardExamplede">
         <div class="card-body">
-            <a class="dropdown-item d-flex align-items-center" href="#">
+            <a class="dropdown-item d-flex align-items-center" href="#" *ngFor="let equipo of equipo?.datosEquipo">
                 <div class="mr-3">
                     <div class="icon-circle bg-success">
                         <i class="fas fa-donate text-white"></i>
                     </div>
                 </div>
                 <div>
-                    <div class="small text-gray-500">IMEI</div>
-                    123G43241J912
+                    <div class="small text-gray-500">{{equipo.titulo}}</div>
+                    {{equipo.dato}}
                 </div>
             </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
+            <!-- <a class="dropdown-item d-flex align-items-center" href="#">
                 <div class="mr-3">
                     <div class="icon-circle bg-success">
                         <i class="fas fa-donate text-white"></i>
@@ -49,7 +49,7 @@
                     <div class="small text-gray-500">EQUIPO EN USO</div>
                     SI
                 </div>
-            </a>
+            </a> -->
         </div>
     </div>
 </div>

@@ -16,6 +16,20 @@ import { ContactoClienteComponent } from './components/contacto-cliente/contacto
 import { RecomendacionesComponent } from './components/recomendaciones/recomendaciones.component';
 import { TemplateDrivenComponent } from './formularios/template-driven/template-driven.component';
 import { ReactiveFormComponent } from './formularios/reactive-form/reactive-form.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/*material */
+// import { theme } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { BasicFormComponent } from './formularios/basic-form/basic-form.component';
+import { NestedFormComponent } from './formularios/nested-form/nested-form.component';
+import { ArrayFormComponent } from './formularios/array-form/array-form.component';
+
+/* Importamos el httpClientModule para el service */
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,14 +46,25 @@ import { ReactiveFormComponent } from './formularios/reactive-form/reactive-form
     ContactoClienteComponent,
     RecomendacionesComponent,
     TemplateDrivenComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    BasicFormComponent,
+    NestedFormComponent,
+    ArrayFormComponent
   ],
   /* Exports de otro módulo que importamos */
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    /*Importamos el httpModule */
+    HttpClientModule
   ],
   /* Servucuis que se puede acceder desde cualquier parte de la aplicacion */
   providers: [],

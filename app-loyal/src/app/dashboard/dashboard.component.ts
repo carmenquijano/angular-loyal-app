@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteDataService } from './../services/cliente-data.service';
+import { InformacionCliente } from './../services/informacion-cliente';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  informacion?:InformacionCliente;
+
+  constructor(
+    private cds: ClienteDataService,
+    ) { }
 
   ngOnInit(): void {
+    this.cds.getInformacionCliente().subscribe(
+      data => this.informacion = data,
+      error=> alert("error obteniendo los datos" + JSON.stringify(error))
+    );
   }
 
 }
+

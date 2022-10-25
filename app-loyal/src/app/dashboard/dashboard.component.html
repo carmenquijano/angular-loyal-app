@@ -27,37 +27,36 @@
 
 
                 <!-- formularios -->
-                <div class="row">
-                    <!-- saldo -->
+                <!-- <div class="row">
                     <div class="col-6">
                         <app-template-driven></app-template-driven>
                     </div>
                     <div class="col-6">
                         <app-reactive-form></app-reactive-form>
                     </div>
-                </div>
+                </div> -->
                 <!-- fin formularios -->
 
                 <!-- Content Row 1 -->
                 <div class="row">
                     <!-- saldo -->
                     <div class="col-sm-12 col-lg-6">
-                        <app-saldo></app-saldo>
+                        <app-saldo [saldo]="informacion?.saldos"></app-saldo>
                     </div>
                     <!-- datos equipo -->
                     <div class="col-sm-12 col-lg-6">
-                        <app-datos-equipo></app-datos-equipo>
+                        <app-datos-equipo [equipo]="informacion?.equipo"></app-datos-equipo>
                     </div>
                 </div>
                 <!-- Content Row 2 -->
                 <div class="row">
                     <!-- contacto cliente -->
                     <div class="col-sm-12 col-lg-8">
-                        <app-contacto-cliente></app-contacto-cliente>
+                        <app-contacto-cliente [cliente]="informacion?.cliente"></app-contacto-cliente>
                     </div>
                     <!-- recomendaciones -->
                     <div class="col-sm-12 col-lg-4">
-                        <app-recomendaciones></app-recomendaciones>
+                        <app-recomendaciones [recomendaciones]="informacion?.recomendaciones"></app-recomendaciones>
                     </div>
                 </div>
 
