@@ -8,13 +8,13 @@ import { Equipo } from 'src/app/services/informacion-cliente';
 })
 export class DatosEquipoComponent implements OnInit {
 
-@Input()
-equipo?:Equipo;
+  @Input()
+  equipo?: Equipo;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.equipo);
+    // console.log(this.equipo);
   }
 
 }

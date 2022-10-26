@@ -1,21 +1,28 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { UsersComponent } from './components/users/users.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { TopBarResolverService } from './services/top-bar-resolver.service';
 
 const routes: Routes = [
+  //localhost:4200/
   {
-     path:'users',
-     component:UsersComponent
-   },
-   {
-    path:'login',
-    component:LoginComponent
+    path: '', pathMatch: 'full', redirectTo: '/dashboard'
+  },
+  {
+    path: 'dashboard', component: DashboardComponent,
+    resolve: {
+      users: TopBarResolverService
+    }
+  },
+  //http://localhost:4200/blablabla
+  //404
+  {
+    path: '*', component: DashboardComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', useHash: true, enableTracing: false })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

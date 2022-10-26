@@ -1,0 +1,23 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AlertComponent } from './components/alert/alert.component';
+import { AlertService } from './service/alert.service';
+
+
+
+@NgModule({
+  declarations: [
+    AlertComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  providers:[
+    AlertService
+  ],
+  exports:[
+    AlertComponent //para poder usarlo desde fuera
+  ]
+})
+
+export class CommonsModule { }

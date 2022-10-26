@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { InformacionCliente } from './informacion-cliente';
 
 @Injectable({
@@ -7,33 +7,31 @@ import { InformacionCliente } from './informacion-cliente';
 })
 export class ClienteDataService {
 
-  //dar un estado inicial a los datos
+  //dar una estado inicial a los datos
   datosVacios = {
     saldos: {datosSaldos:[]},
-    equipo: {datosEquipo:[]},
-    cliente: {contactos:[]},
-    recomendaciones:{ recomendaciones:[] }
-  }
+    equipo: {datosEquipo: []},
+    cliente: {contactos: []},
+    recomendaciones: { recomendaciones:[]}
+  };
 
   //rxjs
   //subject > BeheviorSubject
   private informacionClienteSubject = new BehaviorSubject<InformacionCliente>(this.datosVacios);
-  private currentinformacionCliente: Observable<InformacionCliente> = this.informacionClienteSubject.asObservable();
+  private currentiInformacionCliente: Observable<InformacionCliente> = this.informacionClienteSubject.asObservable();
 
   constructor() { }
 
-  clear():void{
+  clear(): void {
     this.informacionClienteSubject.next(this.datosVacios);
-
   }
 
-  updateCliente(nuevaInformacionCliente: InformacionCliente) : void {
-    //actualiza el estado del subject
-    this.informacionClienteSubject.next(nuevaInformacionCliente);//con next() actualiza el estado
+  updateCliente(nuevaInformacionDeCliente: InformacionCliente): void {
+    //actualiza el estado de subject
+    this.informacionClienteSubject.next(nuevaInformacionDeCliente);
   }
 
-  getInformacionCliente(): Observable<InformacionCliente>{
-    return this.currentinformacionCliente;
+  getInformacionCliente(): Observable<InformacionCliente> {
+    return this.currentiInformacionCliente;
   }
-
 }

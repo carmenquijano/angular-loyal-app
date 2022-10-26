@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from './../../environments/environment.prod';
 import { Observable } from 'rxjs';
 import { InformacionCliente } from './informacion-cliente';
 
@@ -9,21 +9,25 @@ import { InformacionCliente } from './informacion-cliente';
 })
 export class ClienteHttpService {
 
-  //url base donde invocamos
-  urlSearch:string = environment.api_url_reqres;
+  //url base
+  urlSearch = environment.url_api_reqres;
   endPoint = '/assets/datos.json';
 
+  //de un json propio
 
-  //con el HttpClient podemos hacer peticiones REST
-  constructor(private httpClient: HttpClient) {}
-    //
-    search(clave:string): Observable<InformacionCliente> {
-     console.log('buscando: ',clave);
-      return this.httpClient.get<InformacionCliente>(this.endPoint);
-    }
+  /*podemos hacer peticion http: REST*/
+  constructor(private httpClient: HttpClient) { }
 
-    /*post(): void{
-      this.httpClient.post(''. {}, {},...)
-    }*/
+  search(clave:string): Observable<InformacionCliente>{
+    //await fetch('url')
+    console.log('buscando: ' , clave);
 
+    //rest api : enviar la clave!
+
+    return this.httpClient.get<InformacionCliente>(this.endPoint);
+  }
+  /*
+  post(): void {
+    this.httpClient.post('',{},{});
+  }*/
 }

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-
-export interface Articulo{
-  id:number,
-  titulo: string
+export interface Articulo {
+  id: number,
+  titulo: string,
 }
 
 @Component({
@@ -11,31 +10,30 @@ export interface Articulo{
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css']
 })
-
 export class UsersComponent implements OnInit {
   edad:number = 15;
-  nombre:string = 'Carlos Lopez';
+  nombre: string = 'carlos lopez';
   lista:string[] = [];
-  articulo:Articulo ={
-  id:1,
-  titulo:'microfono'
-}
-alto=true;
+  articulo: Articulo = {
+    id: 1,
+    titulo: 'microfono'
+  };
+  alto= true;
 
   constructor() {
-    this.lista.push('Primero');
-    this.lista.push('Segundo');
+    //cargo la lista cuando nace el componente
+    this.lista.push('primero');
+    this.lista.push('segundo');
   }
 
   ngOnInit(): void {
   }
 
-  getArticulo():Articulo{
+  getArticulo(): Articulo {
     return this.articulo;
   }
 
-
-  sumar():number{
-    return 1+2;
+  sumar(a:number,b:number) {
+    return a + b;
   }
 }

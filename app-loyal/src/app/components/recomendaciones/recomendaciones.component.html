@@ -1,3 +1,4 @@
+<!-- Collapsable Card Example -->
 <div class="card shadow mb-4">
     <!-- Card Header - Accordion -->
     <a href="#collapseCardExamplere" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
@@ -9,20 +10,20 @@
             <div class="row">
                 <div class="col-lg-6 mb-4">
                     <div class="card bg-primary text-white shadow">
-                        <div class="card-body">
-                            Primary
-                            <div class="text-white-50 small">#4e73df</div>
+                        <div class="card-body" *ngFor="let rec for recomendaciones?.recomendaciones">
+                            {{ rec.titulo }}
+                            <div class="text-white-50 small">{{ rec.descripcion }}</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card bg-success text-white shadow">
-                        <div class="card-body">
-                            Success
-                            <div class="text-white-50 small">#1cc88a</div>
-                        </div>
-                    </div>
-                </div>
+                <!-- <div class="col-lg-6 mb-4">
+          <div class="card bg-success text-white shadow">
+            <div class="card-body">
+              Success
+              <div class="text-white-50 small">#1cc88a</div>
+            </div>
+          </div>
+        </div> -->
             </div>
         </div>
     </div>

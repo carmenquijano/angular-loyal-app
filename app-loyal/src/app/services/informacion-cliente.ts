@@ -1,5 +1,3 @@
-
-
 export interface InformacionCliente {
   saldos: Saldos;
   equipo: Equipo;

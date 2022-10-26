@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api_url_reqres: 'https://reqres.in'
+  url_api_reqres: 'https://reqres.in',
+  url_jph_path: 'https://jsonplaceholder.typicode.com',
 };
 
 /*

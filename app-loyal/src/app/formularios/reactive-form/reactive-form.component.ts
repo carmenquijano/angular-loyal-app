@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -8,35 +8,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ReactiveFormComponent implements OnInit {
 
+  //inicializamos el formulario
   loginForm: FormGroup = this.createForm();
-  constructor(private formBuilder: FormBuilder) {
-   }
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
   }
 
-  createForm():FormGroup {
-    return this.formBuilder.group(
+  createForm(): FormGroup {
+    this.loginForm = this.formBuilder.group(
       {
-        username:['', Validators.required]
+       username: ['',Validators.required],
       }
     );
+    return this.loginForm;
   }
 
-
-  submitForm(form:any) : void {
-    //console.log(form.form.controls.email.value);
-    if(!form.valid)
-    {
-      window.alert('ERROR');
-      return;
-    }
-    //invocación
-    console.log(form.value.username);
-  }
-
-  hasError():boolean{
+  hasError(): boolean {
     return this.loginForm.invalid;
   }
-
 }

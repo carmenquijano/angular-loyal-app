@@ -16,7 +16,7 @@ export class ArrayFormComponent implements OnInit {
         email: '',
         phones: this.fb.array([])
       }
-    );
+    );;
 
   get phoneForms() {
     return this.myForm.get('phones') as FormArray;

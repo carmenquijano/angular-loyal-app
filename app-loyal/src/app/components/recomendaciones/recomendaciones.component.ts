@@ -8,8 +8,9 @@ import { Recomendaciones } from '../../services/informacion-cliente';
 })
 export class RecomendacionesComponent implements OnInit {
 
-  @Input()
-  recomendaciones?:Recomendaciones;
+@Input()
+recomendaciones?: Recomendaciones;
+
   constructor() { }
 
   ngOnInit(): void {

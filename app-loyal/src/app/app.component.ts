@@ -6,33 +6,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-[x: string]: any;
+
   title = 'app-loyal';
   mostrarLogin:boolean = true;
-  applogin='applogin';
-  nombres:string[] = ['juan', 'carlos', 'pedro'];
-  nombre:string = '';
-  edad:number = 2;
+  applogin = 'applogin';
+  nombres = ['juan','carlos','pedro'];
+  nombre: string = '';
+  edad = 3;
 
-  cambiarVisibilidad():void{
+  agregarNombre() {
+    this.nombres.push(this.nombre);
+  }
+
+  cambiarVisibilidad() {
+    console.log('cambiando visibilidad');
     this.mostrarLogin = !this.mostrarLogin;
   }
-  cambiarClase():void{
-    if(this.applogin == 'otraClase')
-    this.applogin = 'applogin';
-    else
+
+  alert() {
+    window.alert();
+  }
+
+  cambiarClase() {
     this.applogin = 'otraClase';
   }
 
-  agregarNombre():void{
-    this.nombres.push(this.nombre);
-    this.nombre = '';
-  }
-
-  alert():void{
-    window.alert('')
-  }
-  getEdad():number{
+  getEdad(): number {
     return this.edad;
   }
 }

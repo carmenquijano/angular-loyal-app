@@ -12,15 +12,14 @@ export class TemplateDrivenComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  submitForm(form:any) : void {
-    //console.log(form.form.controls.email.value);
-    if(!form.form.valid)
-    {
-      window.alert('ERROR');
+  submitForm(form: any) : void {
+    if(!form.form.valid) {
+      alert('formulario invalido');
       return;
     }
-    //invocación
-    console.log(form.form.controls.email.value);
+
+    //invocacion!
+
+    console.log(form)
   }
 }

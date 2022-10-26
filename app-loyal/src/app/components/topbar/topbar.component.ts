@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { ClienteDataService } from '../../services/cliente-data.service';
-import { ClienteHttpService } from '../../services/cliente-http.service';
+import { Input, Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ClienteHttpService } from 'src/app/services/cliente-http.service';
+import { ClienteDataService } from './../../services/cliente-data.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from './../../../environments/environment';
+import { Comment, Users } from '../../model/json-placeholder';
+import { AlertService } from 'src/app/commons/service/alert.service';
 
 @Component({
   selector: 'app-topbar',
@@ -9,36 +13,55 @@ import { ClienteHttpService } from '../../services/cliente-http.service';
   styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent implements OnInit {
+  @Input()
+  users?: Users[];
 
+  posts:Comment[] = [];
 
-  constructor(private fb:FormBuilder,
-    private clienteHttpService: ClienteHttpService,
-    private clienteDataService: ClienteDataService) { }
+  constructor(
+    private fb: FormBuilder,
+    private clienteHttpSerive: ClienteHttpService,
+    private clienteDataService: ClienteDataService,
+    private http: HttpClient,
+    private alertService: AlertService
+    ) { }
 
-  searchForm:FormGroup = this.fb.group({numeroTelefono:['', [Validators.required]]});
+  searchForm: FormGroup = this.fb.group({
+    numeroTelefono: ['', [Validators.required]],
+  });
 
   ngOnInit(): void {
+    //console.log(this.users);
+    this.http.get<Comment[]>(`${environment.url_jph_path}/comments?postId=1`).subscribe(
+      data =>{ this.posts = data;}
+    );
   }
 
-  executeSearch(): void{
-    //comprobamos que el formulario es válido
-    if(this.searchForm.invalid){
-      return;
+  executeSearch() {
+    //1 - invocar el metood search
+    if(this.searchForm.invalid) {
+      return ;
     }
 
-    //1 - invocar el metodo search del httpClientService
-    this.clienteHttpService.search(this.searchForm.get('numeroTelefono')?.value) .subscribe(
+    this.clienteHttpSerive.search(this.searchForm.get('numeroTelefono')?.value).subscribe(
       //success
       data => {
+        //convertir antes de hacer ul update.
         this.clienteDataService.updateCliente(data);
+        this.alertService.success('Encontramos lo que buscas');
       },
       //error
       error => {
-        window.alert('error consultando: '+ JSON.stringify(error));
+        alert('error consultando:' + JSON.stringify(error));
       },
-      //finish
-      () => { console.log('fin de la busqueda');}
+      //end
+      () => {
+        console.log('fin de la busqueda')
+      }
     );
-    //2 -
-    }
+  }
+
+  reset(): void {
+    this.clienteDataService.clear();
+  }
 }

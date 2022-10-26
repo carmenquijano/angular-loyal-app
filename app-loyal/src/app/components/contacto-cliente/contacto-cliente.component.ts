@@ -9,7 +9,7 @@ import { Cliente } from '../../services/informacion-cliente';
 export class ContactoClienteComponent implements OnInit {
 
   @Input()
-  cliente?:Cliente;
+  cliente?: Cliente;
 
   constructor() { }
 

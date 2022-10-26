@@ -1,55 +1,26 @@
+<!-- Collapsable Card Example -->
 <div class="card shadow mb-4">
-    <!-- Card Header - Accordion -->
-    <a href="#collapseCardExamplede" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
-        <h6 class="m-0 font-weight-bold text-primary">Datos de equipo</h6>
-    </a>
-    <!-- Card Content - Collapse -->
-    <div class="collapse show" id="collapseCardExamplede">
-        <div class="card-body">
-            <a class="dropdown-item d-flex align-items-center" href="#" *ngFor="let equipo of equipo?.datosEquipo">
-                <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                        <i class="fas fa-donate text-white"></i>
-                    </div>
-                </div>
-                <div>
-                    <div class="small text-gray-500">{{equipo.titulo}}</div>
-                    {{equipo.dato}}
-                </div>
-            </a>
-            <!-- <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                        <i class="fas fa-donate text-white"></i>
-                    </div>
-                </div>
-                <div>
-                    <div class="small text-gray-500">ESTADO DE LA LINEA</div>
-                    Activo
-                </div>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                        <i class="fas fa-donate text-white"></i>
-                    </div>
-                </div>
-                <div>
-                    <div class="small text-gray-500">FABRICANTE</div>
-                    Motorola
-                </div>
-            </a>
-            <a class="dropdown-item d-flex align-items-center" href="#">
-                <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                        <i class="fas fa-donate text-white"></i>
-                    </div>
-                </div>
-                <div>
-                    <div class="small text-gray-500">EQUIPO EN USO</div>
-                    SI
-                </div>
-            </a> -->
+  <!-- Card Header - Accordion -->
+  <a href="#collapseCardExamplede" class="d-block card-header py-3" data-toggle="collapse" role="button"
+    aria-expanded="true" aria-controls="collapseCardExample">
+    <h6 class="m-0 font-weight-bold text-primary">Datos del equipo</h6>
+  </a>
+  <!-- Card Content - Collapse -->
+  <div class="collapse show" id="collapseCardExamplede">
+    <div class="card-body">
+      <a class="dropdown-item d-flex align-items-center" href="#" *ngFor="let equipo of equipo?.datosEquipo">
+        <div class="mr-3">
+          <div class="icon-circle bg-success">
+            <i class="fas fa-donate text-white"></i>
+          </div>
         </div>
+        <div>
+          <div class="small text-gray-500">
+            {{equipo.titulo}}
+          </div>
+          {{equipo.dato}}
+        </div>
+      </a>
     </div>
+  </div>
 </div>

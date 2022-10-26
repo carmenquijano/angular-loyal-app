@@ -12,7 +12,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <app-topbar></app-topbar>
+            <app-topbar [users]="users"></app-topbar>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
@@ -25,41 +25,35 @@
                           class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
 
-
-                <!-- formularios -->
-                <!-- <div class="row">
-                    <div class="col-6">
-                        <app-template-driven></app-template-driven>
-                    </div>
-                    <div class="col-6">
-                        <app-reactive-form></app-reactive-form>
-                    </div>
-                </div> -->
-                <!-- fin formularios -->
-
-                <!-- Content Row 1 -->
+                <!--formularios
+              <div class="row">
+                <div class="col-6">
+                  <app-template-driven></app-template-driven>
+                </div>
+                <div class="col-6">
+                  <app-reactive-form></app-reactive-form>
+                </div>
+              </div>
+              -->
+                <!-- Content Row -->
                 <div class="row">
-                    <!-- saldo -->
                     <div class="col-sm-12 col-lg-6">
                         <app-saldo [saldo]="informacion?.saldos"></app-saldo>
                     </div>
-                    <!-- datos equipo -->
                     <div class="col-sm-12 col-lg-6">
                         <app-datos-equipo [equipo]="informacion?.equipo"></app-datos-equipo>
                     </div>
                 </div>
-                <!-- Content Row 2 -->
+
+                <!-- Content Row -->
                 <div class="row">
-                    <!-- contacto cliente -->
                     <div class="col-sm-12 col-lg-8">
                         <app-contacto-cliente [cliente]="informacion?.cliente"></app-contacto-cliente>
                     </div>
-                    <!-- recomendaciones -->
                     <div class="col-sm-12 col-lg-4">
                         <app-recomendaciones [recomendaciones]="informacion?.recomendaciones"></app-recomendaciones>
                     </div>
                 </div>
-
             </div>
             <!-- /.container-fluid -->
 

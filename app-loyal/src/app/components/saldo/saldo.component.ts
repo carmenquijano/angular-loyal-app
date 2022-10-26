@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Saldos } from '../../services/informacion-cliente';
+import { Saldos } from 'src/app/services/informacion-cliente';
 
 @Component({
   selector: 'app-saldo',
@@ -9,11 +9,12 @@ import { Saldos } from '../../services/informacion-cliente';
 export class SaldoComponent implements OnInit {
 
   @Input()
-  saldo?:Saldos;
+  saldo?: Saldos;
+
   constructor() { }
 
   ngOnInit(): void {
-    console.log('OK');
+    // console.log('' + this.saldo);
   }
 
 }
